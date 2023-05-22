@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,11 +69,55 @@ Route::get('/segment/{id}', function ($id) {
 });
 
 
-Route::get('/segmentDefault/{id?}', function ($id = 'base') {
-    return "/segmentDefault/{id?} id = 'base' : " . $id;
-});
-
-// Route::get('/segmentDefault/{id?}', function (Request $request) {
-//     return "segmentDefault request id : " . $request->id;
+// Route::get('/segmentDefault/{id?}', function ($id = 'base') {
+//     return "/segmentDefault/{id?} id = 'base' : " . $id;
 // });
 
+Route::get('/segmentDefault/{id?}', function (Request $request) {
+    return "segmentDefault request id : " . $request->id;
+});
+
+
+
+
+
+
+Route::get('/naming/home', function () {
+    return view('/naminghome');
+});
+
+Route::get('/naming', function () {
+    return '->name("naming.index") : name as naming';
+})->name('naming.index');
+
+Route::fallback(function ()
+{
+    return '잘못된 경로입니다. 다시 확인해 주세요.';
+});
+
+Route::prefix('users')->group(function ()
+{
+    Route::get('/login', function () {
+        return 'login';
+    });
+
+    Route::get('/logout', function () {
+        return 'logout';
+    });
+
+    Route::get('/resistration', function () {
+        return 'resistration';
+    });
+});
+
+
+Route::get('/makesign', function () {
+    $baseUrl = route('sign');
+    $signUrl = URL::signedRoute('sign');
+    $limitSignUrl = URL::temporarySignedRoute('sign', now()->addSecond(20));
+    return $baseUrl."<br>". $signUrl. "<br>". $limitSignUrl;
+});
+
+Route::get('/sign', function () {
+    return 'sign';
+})->name('sign')->middleware('signed');
