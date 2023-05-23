@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TasksController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -126,3 +127,7 @@ Route::get('/sign', function () {
 //controller
 
 Route::get('/test',[TestController::class, 'index'])->name('test.index');
+
+Route::resource('/tasks', TasksController::class);
+
+Route::get('/blade', [BladeController::class, 'index'])->name('blade.index');
