@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -121,3 +122,7 @@ Route::get('/makesign', function () {
 Route::get('/sign', function () {
     return 'sign';
 })->name('sign')->middleware('signed');
+
+//controller
+
+Route::get('/test',[TestController::class, 'index'])->name('test.index');
