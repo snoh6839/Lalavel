@@ -11,7 +11,9 @@ class Board extends Model
 
     protected $table = 'boards';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'bno';
+
+    protected $guarded = [];
 
     // protected $fillable = ['col1','col2'];
     // protected $guarded = ['col3', 'col4'];
