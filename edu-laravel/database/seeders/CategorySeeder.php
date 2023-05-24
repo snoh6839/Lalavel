@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert(
+        DB::table('categories')->insert([
             ['no' => '0', 'name' => '카테고리1']
             ,['no' => '1', 'name' => '카테고리2']
             ,['no' => '2', 'name' => '카테고리3']
@@ -25,7 +25,7 @@ class CategorySeeder extends Seeder
             ,['no' => '6', 'name' => '카테고리7']
             ,['no' => '7', 'name' => '카테고리8']
             ,['no' => '8', 'name' => '카테고리9']
-            ,['no' => '9', 'name' => '카테고리10']
+            ,['no' => '9', 'name' => '카테고리10']]
         );
     }
 }
