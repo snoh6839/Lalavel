@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    //php artisan make:migration create_boards_table
     /**
      * Run the migrations.
      *
