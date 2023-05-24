@@ -14,8 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('boards', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            // boardNo title, content, delFlag, writeDate, updateDate, deletedDate
+            $table->id('bno');
+            $table->char('category', 1)->index();
+            $table->string('btitle', 100); //varchar(100);
+            $table->string('bcontent', 4000);
+            $table->timestamps(); //created_at updated_at
+            $table->timestamp('deleted_at')->nullable();
+            $table->char('deleted_flg', 1)->default('0');
         });
     }
 
