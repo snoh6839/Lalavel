@@ -18,7 +18,21 @@ class BoardController extends Controller
         $no = '5';
         $boardUserSelectNo = DB::select('select * from categories where no = :no', ['no' => $no]);
 
-        return var_dump($boardSelect, $boardUserSelectNo);
+        $inputCateNoArr = ['4', '7', '8'];
+
+        //게시글 번호, 게시글 제목, 카테고리명 출력 (게시글 번호 정렬 상위 5개)
+        $boardUserSelectInfo = DB::table('boards')
+            ->join('categories', 'boards.category', '=', 'categories.no')
+            ->select('boards.bno', 'boards.btitle', 'categories.name')
+            // ->where('boards.category', $inputCateNoArr[0])
+            // ->orwhere('boards.category', $inputCateNoArr[1])
+            // ->orwhere('boards.category', $inputCateNoArr[2])
+            ->whereIn('boards.category', $inputCateNoArr)
+            ->orderBy('boards.bno')
+            ->limit(5)
+            ->get();
+
+        return var_dump($boardUserSelectInfo);
     }
 
     /**
