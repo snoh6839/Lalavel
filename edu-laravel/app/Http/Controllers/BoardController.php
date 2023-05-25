@@ -51,8 +51,14 @@ class BoardController extends Controller
 
         // $boarderFirstInfo = DB::table('boards')->orderByDesc('bno')->first();
 
+        // $boarderCount = DB::table('boards')->count();
+        // $boarderbnoMin = DB::table('boards')->min('bno');
+        
+        // DB::beginTransaction();
+        // DB::commit();
+        // DB::rollBack();
 
-        return var_dump('');
+        // return var_dump();
     }
 
     /**
