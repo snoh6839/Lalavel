@@ -49,8 +49,10 @@ class BoardController extends Controller
 
         // $boardDelete = DB::delete('delete from boards where bno in ( ?, ?)', [50001, 50002]);
 
-        
-        // return var_dump($boardDelete);
+        // $boarderFirstInfo = DB::table('boards')->orderByDesc('bno')->first();
+
+
+        return var_dump('');
     }
 
     /**
