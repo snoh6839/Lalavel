@@ -48,6 +48,8 @@ class BoardController extends Controller
         //     ['bno' => $bno, 'btitle' => 'test', 'bcontent' => 'test test?', 'updated_at' => NOW('Asia/Seoul')]);
 
         // $boardDelete = DB::delete('delete from boards where bno in ( ?, ?)', [50001, 50002]);
+
+        
         // return var_dump($boardDelete);
     }
 
