@@ -53,12 +53,23 @@ class BoardController extends Controller
 
         // $boarderCount = DB::table('boards')->count();
         // $boarderbnoMin = DB::table('boards')->min('bno');
-        
+
         // DB::beginTransaction();
         // DB::commit();
         // DB::rollBack();
 
-        // return var_dump();
+        $boardUserSelectInfo = DB::table('categories as cat')
+        ->select('cat.no', 'cat.name', DB::raw('count(*) as total'))
+        ->join('boards', 'cat.no', '=', 'boards.category')
+        ->where('cat.active_flg','1')
+        ->groupBy('cat.no', 'cat.name')
+        // ->pluck('total','cat.no')
+        // ->dd()
+        ->get()
+        ;
+
+
+        return var_dump($boardUserSelectInfo);
     }
 
     /**
