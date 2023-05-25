@@ -32,7 +32,23 @@ class BoardController extends Controller
             ->limit(5)
             ->get();
 
-        return var_dump($boardUserSelectInfo);
+        // $boardInsert = DB::insert(
+        //     'insert into boards(
+        //         category, btitle, bcontent, created_at, updated_at
+        //     )values(
+        //         :category, :btitle, :bcontent, :created_at, :updated_at
+        //     )',
+        //     ['category' => $no, 'btitle' => $no, 'bcontent' =>$no, 'created_at' => NOW(), 'updated_at' => NOW()]
+        // );
+        // $bno = 50001;
+        // $boardUpdate = DB::update(
+        //     'update boards
+        //     set btitle = :btitle, bcontent = :bcontent ,updated_at = :updated_at
+        //     where bno = :bno', 
+        //     ['bno' => $bno, 'btitle' => 'test', 'bcontent' => 'test test?', 'updated_at' => NOW('Asia/Seoul')]);
+
+        // $boardDelete = DB::delete('delete from boards where bno in ( ?, ?)', [50001, 50002]);
+        // return var_dump($boardDelete);
     }
 
     /**
